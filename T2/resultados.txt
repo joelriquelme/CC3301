@@ -1,0 +1,58 @@
+Sistema operativo utilizado
+Linux debian11mate 5.10.0-18-amd64 #1 SMP Debian 5.10.140-1 (2022-09-02) x86_64 GNU/Linux
+==== run-san ====
+gcc -g -DSAN=1 -fsanitize=address -fsanitize=undefined -DSANITIZE -Wall -Werror -std=c2x -Wno-unused-function  test-alinear.c alinear.c -lm -o alinear.bin-san
+./alinear.bin-san
+Tests unitarios de alinear_der
+Aprobado
+Tests unitarios de alineacion_der
+Aprobado
+Test de alinear_der con string enorme
+Aprobado
+Test de alineacion_der con string enorme
+Aprobado
+Felicitaciones, todos los tests funcionan correctamente
+==== run-g ====
+gcc -g -Wall -Werror -std=c2x -Wno-unused-function  test-alinear.c alinear.c -lm -o alinear.bin-g
+./alinear.bin-g
+Tests unitarios de alinear_der
+Aprobado
+Tests unitarios de alineacion_der
+Aprobado
+Test de alinear_der con string enorme
+Aprobado
+Test de alineacion_der con string enorme
+Aprobado
+Felicitaciones, todos los tests funcionan correctamente
+==== run ====
+gcc -O -DOPT=1 -Wall -Werror -std=c2x -Wno-unused-function  test-alinear.c alinear.c -lm -o alinear.bin
+Midiendo cuanto demora la solucion del profesor
+rm -f tiempo-ref.txt
+chmod +x prof.ref
+./prof.ref 0 0 > /dev/null
+Tiempos de referencia =  142 170
+Verificando y comparando con su solucion
+./alinear.bin 142 170
+Tests unitarios de alinear_der
+Aprobado
+Tests unitarios de alineacion_der
+Aprobado
+Test de alinear_der con string enorme
+Aprobado
+Test de alineacion_der con string enorme
+Aprobado
+------------------------
+Benchmark de alinear_der
+------------------------
+Tiempo para la version del profesor= 142 milisegundos
+Intento= 1
+Tiempo para su version= 204 milisegundos
+Aprobado
+---------------------------
+Benchmark de alineacion_der
+---------------------------
+Tiempo para la version del profesor= 170 milisegundos
+Intento= 1
+Tiempo para su version= 118 milisegundos
+Aprobado
+Felicitaciones, todos los tests funcionan correctamente

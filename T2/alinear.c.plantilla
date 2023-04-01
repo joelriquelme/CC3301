@@ -1,0 +1,21 @@
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#include "alinear.h"
+
+void alinear_der(char *str) {
+  // ...
+}
+
+// Esta implementacion de alineacion_der es invalida porque usa alinear_der.
+// Sera invalida aun si satisface el test de eficiencia.
+// Es ineficiente porque hara una copia adicional de los caracteres.
+// Debe programar una version de alineacion_der que no use alinear_der.
+char *alineacion_der(char *str) {
+  char *res= malloc(strlen(str)+1);
+  strcpy(res, str);
+  alinear_der(res);
+  return res;
+}
