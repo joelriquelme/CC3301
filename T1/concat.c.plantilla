@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#include "concat.h"
+
+uint concat_bits(uint x, int n, uint y, int m) {
+  ... programe aca la funcion concat_bits ...
+}
+

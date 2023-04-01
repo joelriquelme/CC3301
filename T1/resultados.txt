@@ -1,0 +1,39 @@
+Sistema operativo utilizado
+Linux debian11mate 5.10.0-18-amd64 #1 SMP Debian 5.10.140-1 (2022-09-02) x86_64 GNU/Linux
+==== run-san ====
+gcc -g -DSAN=1 -fsanitize=address -fsanitize=undefined -DSANITIZE -Wall -Werror -std=c2x -Wno-unused-function  test-concat.c concat.c -lm -o concat.bin-san
+./concat.bin-san
+Tests unitarios
+Aprobado
+Test exhaustivo con 49600 invocaciones de concat_bits
+Aprobado
+Felicitaciones!  Todos los tests aprobados.
+==== run-g ====
+gcc -g -Wall -Werror -std=c2x -Wno-unused-function  test-concat.c concat.c -lm -o concat.bin-g
+./concat.bin-g
+Tests unitarios
+Aprobado
+Test exhaustivo con 496000 invocaciones de concat_bits
+Aprobado
+Felicitaciones!  Todos los tests aprobados.
+==== run ====
+gcc -O -DOPT=1 -Wall -Werror -std=c2x -Wno-unused-function  test-concat.c concat.c -lm -o concat.bin
+Midiendo cuanto demora la solucion del profesor
+rm -f tiempo-ref.txt
+chmod +x prof.ref
+./prof.ref ref > /dev/null
+Tiempos de referencia =  630
+Verificando y comparando con su solucion
+./concat.bin 630
+Tests unitarios
+Aprobado
+Test exhaustivo con 24800000 invocaciones de concat_bits
+Reservando 473 MB para los benchmarks
+Aprobado
+Corriendo benchmark (intento= 1)
+Tiempo de cpu usado por la version del profesor: 630 milisegundos
+Tiempo para la version sin operadores de bits (estimado): 12730 milisegundos
+Tiempo de cpu usado por su version: 621 milisegundos
+Porcentaje de sobrecosto: -1 %
+Aprobado
+Felicitaciones!  Todos los tests aprobados.
