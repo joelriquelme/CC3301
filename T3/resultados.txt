@@ -1,0 +1,72 @@
+Sistema operativo utilizado
+Linux debian11mate 5.10.0-18-amd64 #1 SMP Debian 5.10.140-1 (2022-09-02) x86_64 GNU/Linux
+==== run-san ====
+gcc -g -DSAN=1 -fsanitize=address -fsanitize=undefined -Wall -Werror -std=c18 -Wno-unused-function  test-calzar.c calzar.c -lm -o calzar.bin-san
+./calzar.bin-san
+Ejemplo 1
+Aprobado
+Ejemplo 2
+Aprobado
+Ejemplo 3
+Aprobado
+Ejemplo 4
+Aprobado
+Ejemplo 5
+Aprobado
+Ejemplo grande con un arbol de 300000 nodos
+Aprobado
+Felicitaciones, todos los tests funcionan correctamente
+==== run-g ====
+gcc -g -Wall -Werror -std=c18 -Wno-unused-function  test-calzar.c calzar.c -lm -o calzar.bin-g
+./calzar.bin-g
+Ejemplo 1
+Aprobado
+Ejemplo 2
+Aprobado
+Ejemplo 3
+Aprobado
+Ejemplo 4
+Aprobado
+Ejemplo 5
+Aprobado
+Ejemplo grande con un arbol de 300000 nodos
+Aprobado
+Felicitaciones, todos los tests funcionan correctamente
+==== run ====
+gcc -O -DOPT=1 -Wall -Werror -std=c18 -Wno-unused-function  test-calzar.c calzar.c -lm -o calzar.bin
+Midiendo cuanto demora la solucion del profesor
+rm -f tiempo-ref.txt
+chmod +x prof.ref-x86_64
+./prof.ref-x86_64 0 > /dev/null
+Tiempos de referencia =  531
+Verificando y comparando con su solucion
+./calzar.bin 531
+Ejemplo 1
+Aprobado
+Ejemplo 2
+Aprobado
+Ejemplo 3
+Aprobado
+Ejemplo 4
+Aprobado
+Ejemplo 5
+Aprobado
+Ejemplo grande con un arbol de 10000000 nodos
+Aprobado
+Ejemplo grande con un arbol de 10000000 nodos
+Aprobado
+Ejemplo grande con un arbol de 10000000 nodos
+Aprobado
+Ejemplo grande con un arbol de 10000000 nodos
+Aprobado
+Ejemplo grande con un arbol de 10000000 nodos
+Aprobado
+-------------------
+Benchmark de calzar
+Se haran 5 intentos
+-------------------
+Tiempo maximo para la version del profesor= 531 milisegundos
+Intento= 1
+Tiempo para su version= 446 milisegundos
+Aprobado
+Felicitaciones, todos los tests funcionan correctamente
