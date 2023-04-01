@@ -1,0 +1,6 @@
+0   
+pedro     8     
+diego     7     
+diego     7     
+ximena    4     
+ana       1     

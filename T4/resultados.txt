@@ -1,0 +1,146 @@
+Sistema operativo utilizado
+Linux debian11mate 5.10.0-18-amd64 #1 SMP Debian 5.10.140-1 (2022-09-02) x86_64 GNU/Linux
+==== run-san ====
+gcc -g -DSAN=1 -fsanitize=address -fsanitize=undefined -Wall -pedantic -Werror -std=c18  extraer.c -lm -o extraer.bin-san
+bash test-extraer.sh extraer.bin-san
+cp cola-orig.txt cola.txt
+Test de ./extraer.bin-san cola.txt
+La salida estandar es:
+juan      
+Aprobado
+----------------------------------
+Test de ./extraer.bin-san cola.txt
+La salida estandar es:
+ximena    
+Aprobado
+----------------------------------
+Test de ./extraer.bin-san cola.txt
+La salida estandar es:
+diego     
+Aprobado
+----------------------------------
+Test de ./extraer.bin-san cola.txt
+La salida estandar es:
+pedro     
+Aprobado
+----------------------------------
+Se compara cola.txt con cola-final.txt
+Aprobado
+----------------------------------
+Probando extraer cuando la cola esta vacia
+Test de ./extraer.bin-san cola.txt
+Deberia señalar que la cola esta vacia.
+La salida estandar de errores es:
+error: cola.txt esta vacia
+Aprobado
+----------------------------------
+Probando cuando la cola esta en otro archivo
+cp cola-orig.txt otra-cola.txt
+Test de ./extraer.bin-san otra-cola.txt
+La salida estandar es:
+juan      
+Aprobado
+----------------------------------
+Probando que se diagnostique un error cuando el archivo no existe
+Test de ./extraer.bin-san no-existe.txt
+La salida estandar de errores es:
+no-existe.txt: No such file or directory
+Aprobado
+
+Felicitaciones: Todos los tests aprobados
+==== run-g ====
+gcc -g -Wall -pedantic -Werror -std=c18  extraer.c -lm -o extraer.bin-g
+bash test-extraer.sh extraer.bin-g
+cp cola-orig.txt cola.txt
+Test de ./extraer.bin-g cola.txt
+La salida estandar es:
+juan      
+Aprobado
+----------------------------------
+Test de ./extraer.bin-g cola.txt
+La salida estandar es:
+ximena    
+Aprobado
+----------------------------------
+Test de ./extraer.bin-g cola.txt
+La salida estandar es:
+diego     
+Aprobado
+----------------------------------
+Test de ./extraer.bin-g cola.txt
+La salida estandar es:
+pedro     
+Aprobado
+----------------------------------
+Se compara cola.txt con cola-final.txt
+Aprobado
+----------------------------------
+Probando extraer cuando la cola esta vacia
+Test de ./extraer.bin-g cola.txt
+Deberia señalar que la cola esta vacia.
+La salida estandar de errores es:
+error: cola.txt esta vacia
+Aprobado
+----------------------------------
+Probando cuando la cola esta en otro archivo
+cp cola-orig.txt otra-cola.txt
+Test de ./extraer.bin-g otra-cola.txt
+La salida estandar es:
+juan      
+Aprobado
+----------------------------------
+Probando que se diagnostique un error cuando el archivo no existe
+Test de ./extraer.bin-g no-existe.txt
+La salida estandar de errores es:
+no-existe.txt: No such file or directory
+Aprobado
+
+Felicitaciones: Todos los tests aprobados
+==== run ====
+gcc -O -DOPT=1 -Wall -pedantic -Werror -std=c18  extraer.c -lm -o extraer.bin
+bash test-extraer.sh extraer.bin
+cp cola-orig.txt cola.txt
+Test de ./extraer.bin cola.txt
+La salida estandar es:
+juan      
+Aprobado
+----------------------------------
+Test de ./extraer.bin cola.txt
+La salida estandar es:
+ximena    
+Aprobado
+----------------------------------
+Test de ./extraer.bin cola.txt
+La salida estandar es:
+diego     
+Aprobado
+----------------------------------
+Test de ./extraer.bin cola.txt
+La salida estandar es:
+pedro     
+Aprobado
+----------------------------------
+Se compara cola.txt con cola-final.txt
+Aprobado
+----------------------------------
+Probando extraer cuando la cola esta vacia
+Test de ./extraer.bin cola.txt
+Deberia señalar que la cola esta vacia.
+La salida estandar de errores es:
+error: cola.txt esta vacia
+Aprobado
+----------------------------------
+Probando cuando la cola esta en otro archivo
+cp cola-orig.txt otra-cola.txt
+Test de ./extraer.bin otra-cola.txt
+La salida estandar es:
+juan      
+Aprobado
+----------------------------------
+Probando que se diagnostique un error cuando el archivo no existe
+Test de ./extraer.bin no-existe.txt
+La salida estandar de errores es:
+no-existe.txt: No such file or directory
+Aprobado
+
+Felicitaciones: Todos los tests aprobados
